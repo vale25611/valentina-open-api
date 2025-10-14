@@ -1,0 +1,29 @@
+* { box-sizing: border-box; }
+
+body { 
+    margin: 0; 
+    font-family: ui-sans-serif, system-ui, Arial; 
+    color: #7A6C5D; 
+    background: #2A3D45; 
+}
+
+main { 
+    max-width: 720px; 
+    margin: 24px auto; 
+    padding: 0 16px; 
+}
+
+h1 { 
+    text-align: center; 
+    margin: 24px 0; 
+}
+section { border: 1px solid #0002; 
+    background:#fff; 
+    padding:16px; 
+    border-radius:10px; 
+}
+
+#status { 
+    margin-top: 8px; 
+    color:#7A6C5D; 
+}
