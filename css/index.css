@@ -16,6 +16,7 @@ main {
 h1 { 
     text-align: center; 
     margin: 24px 0; 
+    color: #d88cb9;
 }
 section { border: 1px solid #0002; 
     background:#fff; 
@@ -23,7 +24,52 @@ section { border: 1px solid #0002;
     border-radius:10px; 
 }
 
-#status { 
+#status-now { 
     margin-top: 8px; 
     color:#7A6C5D; 
+}
+
+.tabs {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin: 12px auto 16px;
+}
+.tab {
+    border: 1px solid #0002;
+    background: #fff;
+    padding: 8px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+}
+.tab.is-active {
+    background: #e8dccc;
+    border-color: #7A6C5D;
+}
+
+section { 
+    border: 1px solid #0002; 
+    background:#fff; 
+    padding:16px; 
+    border-radius:10px; 
+}
+
+#forecast-list {
+    list-style: none; 
+    margin: 0; 
+    padding: 0;
+    display: grid; 
+    gap: 10px;
+}
+#forecast-list li {
+    border: 1px solid #0002; 
+    border-radius: 8px; 
+    padding: 10px 12px; 
+    background:#fff;
+}
+@media (min-width: 768px) {
+  #forecast-list { grid-template-columns: repeat(2, minmax(0,1fr)); }
+}
+@media (min-width: 1024px) {
+  #forecast-list { grid-template-columns: repeat(3, minmax(0,1fr)); }
 }

@@ -12,12 +12,24 @@
   </header>
 
   <main>
-    <section id="weather">
-      <h2>Current Conditions</h2>
+    <nav class="tabs" aria-label="Weather views">
+      <button class="tab is-active" data-view="now">Now</button>
+      <button class="tab" data-view="forecast">7-Day Forecast</button>
+    </nav>
 
+    <!-- Current conditions -->
+    <section id="weather-now" aria-labelledby="now-heading">
+      <h2 id="now-heading">Current Conditions</h2>
       <p><strong>Temperature:</strong> <span id="temp">—</span></p>
       <p><strong>Windspeed:</strong> <span id="wind">—</span></p>
-      <p id="status" aria-live="polite"></p>
+      <p id="status-now" aria-live="polite"></p>
+    </section>
+
+    <!-- Forecast -->
+    <section id="weather-forecast" hidden aria-labelledby="forecast-heading">
+      <h2 id="forecast-heading">7-Day Forecast</h2>
+      <ul id="forecast-list"></ul>
+      <p id="status-forecast" aria-live="polite"></p>
     </section>
   </main>
 
