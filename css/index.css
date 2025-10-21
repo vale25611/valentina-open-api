@@ -3,8 +3,8 @@
 body { 
     margin: 0; 
     font-family: ui-sans-serif, system-ui, Arial; 
-    color: #7A6C5D; 
-    background: #2A3D45; 
+    color: #1B4079; 
+    background: #4D7C8A; 
 }
 
 main { 
@@ -13,21 +13,48 @@ main {
     padding: 0 16px; 
 }
 
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;         
+  object-fit: cover;   
+}
+
+
 h1 { 
     text-align: center; 
     margin: 24px 0; 
-    color: #d88cb9;
+    color: #CBDF90;
 }
-section { border: 1px solid #0002; 
-    background:#fff; 
-    padding:16px; 
-    border-radius:10px; 
+
+#now-heading{
+    text-align: center;
 }
 
 #status-now { 
     margin-top: 8px; 
-    color:#7A6C5D; 
+    color:#1B4079; 
 }
+
+.weather-status {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+  gap: 20px;
+}
+
+.weather-text {
+  flex: 1;
+}
+
+.weather-icon img {
+  width: 96px;
+  height: auto;
+}
+
 
 .tabs {
     display: flex;
@@ -37,7 +64,7 @@ section { border: 1px solid #0002;
 }
 .tab {
     border: 1px solid #0002;
-    background: #fff;
+    background: #7F9C96;
     padding: 8px 12px;
     border-radius: 999px;
     cursor: pointer;
@@ -49,7 +76,7 @@ section { border: 1px solid #0002;
 
 section { 
     border: 1px solid #0002; 
-    background:#fff; 
+    background:#8FAD88; 
     padding:16px; 
     border-radius:10px; 
 }
@@ -65,7 +92,7 @@ section {
     border: 1px solid #0002; 
     border-radius: 8px; 
     padding: 10px 12px; 
-    background:#fff;
+    background:#edfbe9;
 }
 @media (min-width: 768px) {
   #forecast-list { grid-template-columns: repeat(2, minmax(0,1fr)); }

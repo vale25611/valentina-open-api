@@ -7,6 +7,10 @@
   <link rel="stylesheet" href="css/index.css" />
 </head>
 <body>
+  <video autoplay muted loop id="bg-video">
+    <source src="assets/videos/background.mp4" type="video/mp4">
+  </video>
+
   <header>
     <h1>Weather (Open-Meteo)</h1>
   </header>
@@ -20,9 +24,18 @@
     <!-- Current conditions -->
     <section id="weather-now" aria-labelledby="now-heading">
       <h2 id="now-heading">Current Conditions</h2>
-      <p><strong>Temperature:</strong> <span id="temp">—</span></p>
-      <p><strong>Windspeed:</strong> <span id="wind">—</span></p>
-      <p id="status-now" aria-live="polite"></p>
+      
+      <div class="weather-status">
+        <div class="weather-text">
+          <p><strong>Temperature:</strong> <span id="temp">—</span></p>
+          <p><strong>Windspeed:</strong> <span id="wind">—</span></p>
+          <p id="status-now" aria-live="polite"></p>
+        </div>
+      <!-- added icons-->
+      <div class="weather-icon">
+          <img id="weather-icon" src="" alt="Weather Icon" />
+      </div>
+      </div>
     </section>
 
     <!-- Forecast -->

@@ -5,6 +5,37 @@ const tempEl = document.getElementById("temp");
 const windEl = document.getElementById("wind");
 const statusNowEl = document.getElementById("status-now");
 
+const weatherIconEl = document.getElementById("weather-icon");
+const ICONS = {
+  0:  "assets/icons/sunny.svg",
+  1:  "assets/icons/mostly_sunny.svg",
+  2:  "assets/icons/partly_cloudy.svg",
+  3:  "assets/icons/cloudy.svg",
+
+  45: "assets/icons/cloudy.svg",
+  48: "assets/icons/cloudy.svg",
+
+  51: "assets/icons/drizzle.svg",
+  53: "assets/icons/drizzle.svg",
+  55: "assets/icons/drizzle.svg",
+
+  61: "assets/icons/showers.svg",
+  63: "assets/icons/scattered_showers.svg",
+  65: "assets/icons/heavy.svg",
+
+  71: "assets/icons/snow_showers.svg",
+  73: "assets/icons/scattered_snow.svg",
+  75: "assets/icons/heavy_snow.svg",  
+
+  80: "assets/icons/showers.svg",
+  81: "assets/icons/scattered_showers.svg",
+  82: "assets/icons/heavy.svg",
+
+  95: "assets/icons/isolated_tstorms.svg",
+  96: "assets/icons/strong_tstorms.svg",
+  99: "assets/icons/strong_tstorms.svg",
+};
+
 const forecastSection = document.getElementById("weather-forecast");
 const forecastList = document.getElementById("forecast-list");
 const forecastStatusEl = document.getElementById("status-forecast");
@@ -29,7 +60,7 @@ const WEATHER_TEXT = {
 async function loadNow() {
   try {
     statusNowEl.textContent = "Loading current conditions…";
-    const url = `https://api.open-meteo.com/v1/forecast?latitude=${LAT}&longitude=${LON}&current=temperature_2m,wind_speed_10m`;
+    const url = `https://api.open-meteo.com/v1/forecast?latitude=${LAT}&longitude=${LON}&current=temperature_2m,wind_speed_10m,weather_code`;
     const res = await fetch(url);
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
@@ -39,6 +70,17 @@ async function loadNow() {
 
     tempEl.textContent = (typeof tempC === "number") ? `${tempC} °C` : "—";
     windEl.textContent = (typeof wind === "number") ? `${wind} m/s` : "—";
+
+    // Weather icon (for current conditions)
+    const code = data?.current?.weather_code;
+    if (ICONS[code]) {
+      weatherIconEl.src = ICONS[code];
+      weatherIconEl.alt = WEATHER_TEXT[code] || "Weather icon";
+    } else {
+      weatherIconEl.src = "";
+      weatherIconEl.alt = "";
+    }
+
     statusNowEl.textContent = "Updated.";
   } catch (err) {
     console.error(err);
@@ -65,11 +107,16 @@ async function loadForecast() {
     for (let i = 0; i < days.length; i++) {
       const li = document.createElement("li");
       const label = WEATHER_TEXT[codes[i]] ?? "—";
+      const iconPath = ICONS[codes[i]] ?? "";
       li.innerHTML = `
         <div><strong>${new Date(days[i]).toLocaleDateString()}</strong></div>
-        <div>${label}</div>
+        <div>
+          ${iconPath ? `<img src="${iconPath}" alt="${label}" width="30" height="30">` : ""}
+          ${label}
+        </div>
         <div>High: ${highs[i]} °C • Low: ${lows[i]} °C</div>
       `;
+
       forecastList.appendChild(li);
     }
     forecastStatusEl.textContent = "Updated.";
