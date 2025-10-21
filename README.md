@@ -18,7 +18,7 @@ This is a static project, so no build tools are required.
 1. **Download the project**  
    - Click the green **Code** button in this GitHub repo.  
    - Select **Download ZIP** and unzip it on your computer.  
-   - Or, clone it with Git: git clone https://github.com/vale25611/valentina-open-api.git
+   - Or, clone it with Git: `git clone https://github.com/vale25611/valentina-open-api.git`
 
 
 2. **Open in a browser**  
