@@ -10,3 +10,18 @@ The app shows **current conditions** and a **7-day forecast**, with animated vid
 - Custom SVG weather icons
 - Tab navigation 
 
+## Running the Webpage Locally  
+
+This is a static project, so no build tools are required.  
+
+### Steps:
+1. **Download the project**  
+   - Click the green **Code** button in this GitHub repo.  
+   - Select **Download ZIP** and unzip it on your computer.  
+   - Or, clone it with Git: git clone https://github.com/vale25611/valentina-open-api.git
+
+
+2. **Open in a browser**  
+   - Navigate into the project folder.  
+   - Open `index.html` in your browser by dragging it to your search bar or right-clicking it → "Open With Browser"  
+
